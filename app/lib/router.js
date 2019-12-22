@@ -5,6 +5,7 @@ class Router {
         this.hashChange = this.hashChange.bind(this);
 
         window.addEventListener('hashchange', this.hashChange)
+        window.addEventListener('DOMContentLoaded', this.hashChange)
     }
     addRoute(name, url) {
         this.routes.push({

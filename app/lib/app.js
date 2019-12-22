@@ -1,13 +1,17 @@
 class App {
     constructor(selector) {
         this.appElement = document.querySelector(selector);
-        this.componentsByName = [];
+        this.componentsByName = {};
     }
     addComponent(component) {
         this.componentsByName[component.name] = component;
     }
-    showComponent(neme) {
+    showComponent(name) {
         this.currentComponent = this.componentsByName[name];
+        
+        if (this.currentComponent) {
+            this.currentComponent.controller(this.currentComponent.model)
+        }
         this.updateView();
     }
     updateView() {
