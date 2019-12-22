@@ -19,6 +19,7 @@ class Router {
         const route = this.routes.filter(route => hash.match(new RegExp(route.url)))
         
         if (route) {
+            this.params = new RegExp(route.url).exec(hash)
             this.app.showComponent(route.name)
         } else {
             this.app.showComponent()

@@ -45,7 +45,7 @@ app.addComponent({
         return dogTemplate(model.dog)
     },
     controller(model) {
-        api.getDog(1)
+        api.getDog(router.params[1])
         .then(result => {
             model.dog = result.dog
         })
