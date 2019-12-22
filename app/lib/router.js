@@ -16,6 +16,11 @@ class Router {
         const hash = window.location.hash;
 
         const route = this.routes.filter(route => hash.match(new RegExp(route.url)))
-        console.log(route)
+        
+        if (route) {
+            this.app.showComponent(route.name)
+        } else {
+            this.app.showComponent()
+        }
     }
 }
