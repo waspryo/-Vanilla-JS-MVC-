@@ -13,6 +13,7 @@ app.addComponent({
         api.getDogs()
         .then(result => {
             console.log(result)
+            model.dogs = result.dogs
         })
     }
 })
