@@ -16,7 +16,11 @@ class App {
         this.updateView();
     }
     updateView() {
-        this.appElement.innerHTML = this.currentComponent.view(this.currentComponent.model)
+        if (this.currentComponent) {
+            this.appElement.innerHTML = this.currentComponent.view(this.currentComponent.model)   
+        } else {
+            this.appElement.innerHTML = '<h3>Not Found</h3>'
+        }
     }
     proxify(model) {
         const self = this;

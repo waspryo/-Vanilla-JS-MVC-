@@ -36,5 +36,22 @@ app.addComponent({
     }
 })
 
+app.addComponent({
+    nam: 'dog',
+    model: {
+        dog: {}
+    },
+    view(model) {
+        return dogTemplate(model.dog)
+    },
+    controller(model) {
+        api.getDog(1)
+        .then(result => {
+            model.dog = result.dog
+        })
+    }
+})
+
 const router = new Router(app);
 router.addRoute('dogs', '^#/dogs$')
+router.addRoute('dog', '^#/dogs/([0-9]*)$')
